@@ -1,12 +1,12 @@
-name: Fetch Azure Agent Info
+name: Fetch Azure Arc Agent Info and Update README
 
 on:
   schedule:
-    - cron:  '0 8 * * SUN' # Runs every day at midnight
+    - cron: '0 0 * * SUN'  # Runs every day at midnight
   workflow_dispatch:
 
 jobs:
-  fetch-info:
+  fetch-and-update:
     runs-on: windows-latest
 
     steps:
@@ -15,13 +15,22 @@ jobs:
 
     - name: Execute PowerShell Script and Save Output
       run: |
-        $result = .\path\to\your-script.ps1 | Out-String
+        $result = .\Get-AzureConnectedMachineAgentVersion.ps1 | Out-String
         $result | Out-File -FilePath .\output.json -Encoding utf8
 
-    - name: Commit and Push JSON File
+    - name: Update README.md
       run: |
-        git config --global user.name 'Your Name'
-        git config --global user.email 'your-email@example.com'
-        git add .\output.json
-        git commit -m "Update Azure Agent Info" || echo "No changes to commit"
-        git push
+        $data = Get-Content .\output.json | ConvertFrom-Json
+        $markdownTable = "Title | Version | KB Article`n---- | ------- | ----------`n"
+        foreach ($item in $data) {
+            $markdownTable += "$($item.Title) | $($item.Version) | $($item.KBArticle)`n"
+        }
+        $readmeContent = Get-Content .\README.md
+        $updatedReadme = $readmeContent + "`n## Azure Agent Information`n" + $markdownTable
+        $updatedReadme | Set-Content .\README.md
+        
+    - name: Commit changed files
+      uses: stefanzweifel/git-auto-commit-action@v5.0.0
+      with:
+        commit_message: Save Arc Files
+        skip_checkout: true
