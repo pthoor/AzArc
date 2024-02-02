@@ -1,0 +1,27 @@
+name: Fetch Azure Agent Info
+
+on:
+  schedule:
+    - cron:  '0 8 * * SUN' # Runs every day at midnight
+  workflow_dispatch:
+
+jobs:
+  fetch-info:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Execute PowerShell Script and Save Output
+      run: |
+        $result = .\path\to\your-script.ps1 | Out-String
+        $result | Out-File -FilePath .\output.json -Encoding utf8
+
+    - name: Commit and Push JSON File
+      run: |
+        git config --global user.name 'Your Name'
+        git config --global user.email 'your-email@example.com'
+        git add .\output.json
+        git commit -m "Update Azure Agent Info" || echo "No changes to commit"
+        git push
