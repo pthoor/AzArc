@@ -38,8 +38,9 @@ jobs:
         $newContent = "`n<!-- AZURE_AGENT_INFO_START -->`n## Azure Arc Agent Information`n" + $markdownTable + "`n<!-- AZURE_AGENT_INFO_END -->`n"
 
         $readmeContent = Get-Content .\README.md -Raw
-        if ($readmeContent -match "<!-- AZURE_AGENT_INFO_START -->.*<!-- AZURE_AGENT_INFO_END -->") {
-            $readmeContent = $readmeContent -replace "(<!-- AZURE_AGENT_INFO_START -->).*?(<!-- AZURE_AGENT_INFO_END -->)", $newContent
+        $pattern = "(<!-- AZURE_AGENT_INFO_START -->).*(<!-- AZURE_AGENT_INFO_END -->)"
+        if ($readmeContent -match $pattern) {
+            $readmeContent = $readmeContent -replace $pattern, $newContent
         } else {
             $readmeContent += $newContent
         }
