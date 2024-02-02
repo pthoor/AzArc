@@ -35,16 +35,22 @@ jobs:
         foreach ($item in $data) {
             $markdownTable += "$($item.Title) | $($item.Version) | $($item.KBArticle)`n"
         }
-        $newContent = "`n<!-- AZURE_AGENT_INFO_START -->`n## Azure Arc Agent Information`n" + $markdownTable + "`n<!-- AZURE_AGENT_INFO_END -->`n"
+        $newSection = "`n<!-- AZURE_AGENT_INFO_START -->`n## Azure Arc Agent Information`n" + $markdownTable + "`n<!-- AZURE_AGENT_INFO_END -->`n"
 
         $readmeContent = Get-Content .\README.md -Raw
-        $pattern = "(<!-- AZURE_AGENT_INFO_START -->).*(<!-- AZURE_AGENT_INFO_END -->)"
-        if ($readmeContent -match $pattern) {
-            $readmeContent = $readmeContent -replace $pattern, $newContent
+        $startPattern = "<!-- AZURE_AGENT_INFO_START -->"
+        $endPattern = "<!-- AZURE_AGENT_INFO_END -->"
+        $startPos = $readmeContent.IndexOf($startPattern)
+        $endPos = $readmeContent.IndexOf($endPattern, $startPos)
+
+        if ($startPos -ne -1 -and $endPos -ne -1) {
+            $before = $readmeContent.Substring(0, $startPos)
+            $after = $readmeContent.Substring($endPos + $endPattern.Length)
+            $newReadmeContent = $before + $newSection + $after
         } else {
-            $readmeContent += $newContent
+            $newReadmeContent = $readmeContent + $newSection
         }
-        $readmeContent | Set-Content .\README.md
+        $newReadmeContent | Set-Content .\README.md
         
     - name: Commit changed files
       uses: stefanzweifel/git-auto-commit-action@v5.0.0
