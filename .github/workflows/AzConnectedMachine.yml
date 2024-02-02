@@ -35,10 +35,15 @@ jobs:
         foreach ($item in $data) {
             $markdownTable += "$($item.Title) | $($item.Version) | $($item.KBArticle)`n"
         }
-        $readmeContent = Get-Content .\README.md
-        $updatedReadme = $readmeContent + "`n## Azure Agent Information`n" + $markdownTable
-        $updatedReadme | Set-Content .\README.md
-      shell: pwsh
+        $newContent = "`n<!-- AZURE_AGENT_INFO_START -->`n## Azure Arc Agent Information`n" + $markdownTable + "`n<!-- AZURE_AGENT_INFO_END -->`n"
+
+        $readmeContent = Get-Content .\README.md -Raw
+        if ($readmeContent -match "<!-- AZURE_AGENT_INFO_START -->.*<!-- AZURE_AGENT_INFO_END -->") {
+            $readmeContent = $readmeContent -replace "(<!-- AZURE_AGENT_INFO_START -->).*?(<!-- AZURE_AGENT_INFO_END -->)", $newContent
+        } else {
+            $readmeContent += $newContent
+        }
+        $readmeContent | Set-Content .\README.md
         
     - name: Commit changed files
       uses: stefanzweifel/git-auto-commit-action@v5.0.0
