@@ -6,6 +6,7 @@ function Get-AzureConnectedMachineAgentVersion {
         # Check if HtmlAgilityPack is already loaded
         if (-not ([System.AppDomain]::CurrentDomain.GetAssemblies() | Where-Object { $_.GetName().Name -eq 'HtmlAgilityPack' })) {
             # Load HTML content into HtmlAgilityPack HTMLDocument
+            Import-Module MSCatalog
             # Add-Type -Path "path\to\HtmlAgilityPack.dll" # Update this path to the location of HtmlAgilityPack.dll
         }
 
