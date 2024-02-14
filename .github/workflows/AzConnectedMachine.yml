@@ -2,7 +2,7 @@ name: Fetch Azure Arc Agent Info and Update README
 
 on:
   schedule:
-    - cron: '0 0 * * SUN'  # Runs every day at midnight
+    - cron: '0 0 */2 * *'  # Runs every second day at midnight
   workflow_dispatch:
 
 jobs:
