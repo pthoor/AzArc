@@ -1,5 +1,10 @@
 [
   {
+    "Title": "AzureConnectedMachineAgent Version 1.42 - May 2024 Update",
+    "Version": "1.42",
+    "KBArticle": "5040176"
+  },
+  {
     "Title": "AzureConnectedMachineAgent Version 1.40 - April 2024 Update",
     "Version": "1.40",
     "KBArticle": "5038655"
