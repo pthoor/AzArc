@@ -1,5 +1,10 @@
 [
   {
+    "Title": "AzureConnectedMachineAgent Version 1.47 - October 2024 Update",
+    "Version": "1.47",
+    "KBArticle": "5047701"
+  },
+  {
     "Title": "AzureConnectedMachineAgent Version 1.46 - September 2024 Update",
     "Version": "1.46",
     "KBArticle": "5045987"
@@ -118,11 +123,6 @@
     "Title": "AzureConnectedMachineAgent Version 1.21 - August 2022 Update",
     "Version": "1.21",
     "KBArticle": "5017808"
-  },
-  {
-    "Title": "AzureConnectedMachineAgent 1.20 - July 2022 Update",
-    "Version": "1.20",
-    "KBArticle": "5016989"
   }
 ]
 
