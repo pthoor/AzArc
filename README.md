@@ -212,6 +212,7 @@
 
 
 
+
 <!-- AZURE_AGENT_INFO_START -->
 ## Azure Arc Agent Information
 Title | Version | KB Article
@@ -243,6 +244,8 @@ AzureConnectedMachineAgent Version 1.25 - January 2023 Update | 1.25 | 5023351
 AzureConnectedMachineAgent Version 1.24 - November 2022 Update | 1.24 | 5022109
 
 <!-- AZURE_AGENT_INFO_END -->
+
+
 
 
 
