@@ -333,37 +333,15 @@
 
 
 
+
 <!-- AZURE_AGENT_INFO_START -->
 ## Azure Arc Agent Information
 Title | Version | KB Article
 ---- | ------- | ----------
-AzureConnectedMachineAgent Version 1.58 - November 2025 Update | 1.58 | 5072304
-AzureConnectedMachineAgent Version 1.57 - October 2025 Update New | 1.57 | 5070798
-AzureConnectedMachineAgent Version 1.56 - September 2025 Update | 1.56 | 5068756
-AzureConnectedMachineAgent Version 1.56 - September 2025 Update | 1.56 | 5067398
-AzureConnectedMachineAgent Version 1.55 - August 2025 Update | 1.55 | 5065738
-AzureConnectedMachineAgent Version 1.54 - July 2025 Update | 1.54 | 5064605
-AzureConnectedMachineAgent Version 1.53 - June 2025 Update | 1.53 | 5063386
-AzureConnectedMachineAgent Version 1.52 - May 2025 Update | 1.52 | 5061663
-AzureConnectedMachineAgent Version 1.51 - April 2025 Update | 1.51 | 5058992
-AzureConnectedMachineAgent Version 1.50 - March 2025 Update | 1.50 | 5056773
-AzureConnectedMachineAgent Version 1.49 - Februrary 2025 Update | 1.49 | 5054544
-AzureConnectedMachineAgent Version 1.48 - January 2025 Update | 1.48 | 5052635
-AzureConnectedMachineAgent Version 1.47 - October 2024 Update | 1.47 | 5047701
-AzureConnectedMachineAgent Version 1.46 - September 2024 Update | 1.46 | 5045987
-AzureConnectedMachineAgent Version 1.45 - August 2024 Update | 1.45 | 5043465
-AzureConnectedMachineAgent Version 1.44 - July 2024 Update | 1.44 | 5042331
-AzureConnectedMachineAgent Version 1.43 - June 2024 Update | 1.43 | 5041279
-AzureConnectedMachineAgent Version 1.42 - May 2024 Update | 1.42 | 5040176
-AzureConnectedMachineAgent Version 1.40 - April 2024 Update | 1.40 | 5038655
-AzureConnectedMachineAgent Version 1.39 - March 2024 Update | 1.39 | 5037567
-AzureConnectedMachineAgent Version 1.38 - February 2024 Official Update | 1.38 | 5036294
-AzureConnectedMachineAgent Version 1.37 - December 2023 Update | 1.37 | 5034413
-AzureConnectedMachineAgent Version 1.36 - November 2023 Update | 1.36 | 5033621
-AzureConnectedMachineAgent Version 1.35 - October 2023 Update | 1.35 | 5032957
-AzureConnectedMachineAgent Version 1.34 - September 2023 Update | 1.34 | 5031696
 
 <!-- AZURE_AGENT_INFO_END -->
+
+
 
 
 
